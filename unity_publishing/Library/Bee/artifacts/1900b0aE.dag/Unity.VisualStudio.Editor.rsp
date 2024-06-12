@@ -29,7 +29,6 @@
 -define:PLATFORM_ARCH_64
 -define:UNITY_64
 -define:UNITY_INCLUDE_TESTS
--define:UNITY_ANALYTICS
 -define:ENABLE_AR
 -define:ENABLE_AUDIO
 -define:ENABLE_CACHING
@@ -113,6 +112,7 @@
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Code/atlas-unity/unity_publishing/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"C:/Code/atlas-unity/unity_publishing/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.37f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.37f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.37f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
