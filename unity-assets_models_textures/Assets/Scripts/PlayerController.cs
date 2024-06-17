@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
 
-    // Get Rigidbody component
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,21 +18,45 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Get input
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
-        // Update movement vector from input
-        Vector3 move = new Vector3(moveX, 0, moveZ).normalized * speed;
+        // Calculate movement direction relative to camera
+        Vector3 moveDirection = CalculateMoveDirection();
 
         // Move player
-        rb.MovePosition(transform.position + move * Time.deltaTime);
+        rb.MovePosition(transform.position + moveDirection * speed * Time.deltaTime);
+
+        // Rotate player to face movement direction
+        if (moveDirection != Vector3.zero)
+        {
+            Quaternion newRotation = Quaternion.LookRotation(moveDirection);
+            rb.MoveRotation(newRotation);
+        }
 
         // Jump but no midair jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+    /// move realtive to camera
+    Vector3 CalculateMoveDirection()
+    {
+        // get camera's forward and right vectors without vertical component
+        Vector3 cameraForward = Camera.main.transform.forward;
+        cameraForward.y = 0;
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraRight.y = 0;
+
+        // normalize
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // calculate movement direction based on input
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        Vector3 moveDirection = cameraForward * moveZ + cameraRight * moveX;
+
+        // eturn normalized movement direction
+        return moveDirection.normalized;
     }
 
     void OnCollisionStay(Collision collision)
