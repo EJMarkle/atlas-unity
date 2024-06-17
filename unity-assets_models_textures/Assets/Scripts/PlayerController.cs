@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 6.0f;
     public float jumpForce = 7.0f;
     public LayerMask groundLayer;
+    public Transform respawnPoint;
+
+    public float fallThreshold = -10f;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -18,6 +21,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Reset player when if fallen off platforms
+        if (transform.position.y < fallThreshold)
+        {
+            Respawn();
+        }
+
         // Calculate movement direction relative to camera
         Vector3 moveDirection = CalculateMoveDirection();
 
@@ -83,5 +92,11 @@ public class PlayerController : MonoBehaviour
                 // Debug.Log("Player is not grounded");
             }
         }
+    }
+
+    // resets player to RespawnPoint location
+    void Respawn()
+    {
+        transform.position = respawnPoint.position;
     }
 }

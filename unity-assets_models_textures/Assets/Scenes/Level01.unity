@@ -636,6 +636,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167227229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &263121498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263121499}
+  m_Layer: 0
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263121499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263121498}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06, y: 30.3, z: 0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &335151332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1115,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  respawnPoint: {fileID: 263121499}
+  fallThreshold: -30
 --- !u!4 &862052046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7409036544017263533, guid: 25265eaa6abf76043946d38315942438, type: 3}
@@ -2603,3 +2636,4 @@ SceneRoots:
   - {fileID: 4424969677806463903}
   - {fileID: 1167227229}
   - {fileID: 335151336}
+  - {fileID: 263121499}
