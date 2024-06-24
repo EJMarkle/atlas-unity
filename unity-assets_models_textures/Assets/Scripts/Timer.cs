@@ -55,4 +55,21 @@ public class Timer : MonoBehaviour
         // Debug.Log("timer started");
     }
 
+    public void StopTimer()
+    {
+        isTimerRunning = false;
+        // Debug.Log("timer stopped");
+    }
+    /// <summary>
+    /// Method for other scripts to update TMP properties
+    /// </summary>
+    public void UpdateTextProperties(float fontSize, Color color)
+    {
+        if (timerText != null)
+        {
+            timerText.fontSize = fontSize;
+            timerText.color = color;
+        }
+    }
+
 }
