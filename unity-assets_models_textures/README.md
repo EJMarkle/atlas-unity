@@ -3,6 +3,9 @@ This project involves:
 Skyboxes: Farland Skies - Cloudy Crown
     https://assetstore.unity.com/packages/2d/textures-materials/sky/farland-skies-cloudy-crown-60004
 
+Models: Kenney's Nature Pack Extended
+    https://www.kenney.nl/assets/nature-kit
+
 Prototyping a 3D platformer game: You’ll develop a prototype for a 3D platformer game using Unity. The final product will function as per this sample: Platformer - Final.
 Building scripts: Without using free or paid assets, you’ll learn how to build scripts that interact with Unity’s existing character controller components.
 Asset usage: You will gain hands-on experience with Unity primitives, learn what assets are in game development, how to import them, and understand the common asset types.

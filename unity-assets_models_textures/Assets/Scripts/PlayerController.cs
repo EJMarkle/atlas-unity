@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform respawnPoint;
 
     public float fallThreshold = -10f;
+    public float maxSlopeAngle = 45f;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -73,11 +74,19 @@ public class PlayerController : MonoBehaviour
         // Check if the collision object is on Ground layer
         if (((1 << collision.gameObject.layer) & groundLayer) != 0)
         {
-            if (!isGrounded)
+            bool isOnValidGround = false;
+
+            foreach (ContactPoint contact in collision.contacts)
             {
-                isGrounded = true;
-                // Debug.Log("Player is grounded");
+                // Check if the angle between the contact normal and up direction is within acceptable range
+                if (Vector3.Angle(contact.normal, Vector3.up) <= maxSlopeAngle)
+                {
+                    isOnValidGround = true;
+                    break;
+                }
             }
+
+            isGrounded = isOnValidGround;
         }
     }
 
@@ -98,5 +107,6 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         transform.position = respawnPoint.position;
+        rb.velocity = Vector3.zero;
     }
 }
