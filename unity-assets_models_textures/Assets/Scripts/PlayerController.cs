@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 /// PlayerController class
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private bool isGrounded;
+    public string mainMenuSceneName = "MainMenu";
 
     void Start()
     {
@@ -22,6 +24,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadMainMenu();
+        }
+
         // Reset player when if fallen off platforms
         if (transform.position.y < fallThreshold)
         {
@@ -108,5 +115,9 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = respawnPoint.position;
         rb.velocity = Vector3.zero;
+    }
+    void LoadMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
