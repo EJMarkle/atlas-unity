@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 2060350076}
   - component: {fileID: 2060350075}
   - component: {fileID: 2060350074}
-  - component: {fileID: 2060350073}
+  - component: {fileID: 2060350077}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -462,25 +462,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2060350073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060350072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 2060350075}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: ffa666d97ab0c121ebb1
-  mDatasetName: Vuforia/ARBusinessCard.xml
-  mCastedBehaviour: {fileID: 2060350075}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &2060350074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,18 +521,18 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: ffa666d97ab0c121ebb1
+  mTrackableName: editedcoaster
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/ARBusinessCard.xml
-  mAspectRatio: 0.998267
+  mAspectRatio: 0.998702
   mImageTargetType: 0
   mWidth: 1
-  mHeight: 0.998267
+  mHeight: 0.998702
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 2060350073}
+  mPreview: {fileID: 2060350077}
 --- !u!4 &2060350076
 Transform:
   m_ObjectHideFlags: 0
@@ -568,6 +549,25 @@ Transform:
   - {fileID: 1770788254}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2060350077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060350072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 2060350075}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: editedcoaster
+  mDatasetName: Vuforia/ARBusinessCard.xml
+  mCastedBehaviour: {fileID: 2060350075}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
