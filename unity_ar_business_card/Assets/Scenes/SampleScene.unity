@@ -1232,13 +1232,13 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: editedcoaster
+  mTrackableName: lumi
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/ARBusinessCard.xml
-  mAspectRatio: 0.998702
+  mAspectRatio: 0.943694
   mImageTargetType: 0
   mWidth: 1
-  mHeight: 0.998702
+  mHeight: 0.943694
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -1252,15 +1252,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060350072}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.000008249686, y: 0.0015548354, z: -0.00074999547, w: 0.9999985}
+  m_LocalPosition: {x: -0.0006855244, y: 0.0000005066395, z: -0.00000647451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 854671242}
   - {fileID: 1174850170}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.001, y: 0.178, z: -0.086}
 --- !u!114 &2060350077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 2060350075}
   mHiddenRoot: {fileID: 0}
-  mTargetName: editedcoaster
+  mTargetName: lumi
   mDatasetName: Vuforia/ARBusinessCard.xml
   mCastedBehaviour: {fileID: 2060350075}
   mMeshFilter: {fileID: 0}
