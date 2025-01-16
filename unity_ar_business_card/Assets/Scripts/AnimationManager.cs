@@ -12,10 +12,10 @@ public class AnimationManager : DefaultObserverEventHandler
     {
         base.OnTrackingFound();
         
-        // Only play intro animation if it hasn't played yet
+        // only play intro animation if it hasn't played yet
         if (!hasPlayedIntro && introAnimator != null)
         {
-            introAnimator.Play("IntroAnim");
+            introAnimator.Play("Intro");
             hasPlayedIntro = true;
         }
     }
