@@ -23,9 +23,12 @@ public class SlingshotInteraction : MonoBehaviour
     private Vector3 initialPosition;
 
     public RubberBand rubberBand;
+    public GameObject AudioManager;
+    private AudioSource[] audioSources;
 
     private void Start()
     {
+        audioSources = AudioManager.GetComponents<AudioSource>();
         rb = GetComponent<Rigidbody>();
         grabInteractable = GetComponent<XRGrabInteractable>();
         fixedJoint = GetComponent<FixedJoint>();
@@ -70,6 +73,7 @@ public class SlingshotInteraction : MonoBehaviour
 
     private void OnRelease(SelectExitEventArgs args)
     {
+        audioSources[8].Play();
         if (fixedJoint != null)
         {
             Destroy(fixedJoint);
