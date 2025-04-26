@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
+
+
+/// <summary>
+/// Class for destructible block behavior
+/// </summary>
 public class DestructibleBlock : MonoBehaviour
 {
     public int maxHP = 3; 
@@ -43,6 +48,9 @@ public class DestructibleBlock : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Decrements hp and calls UpdateBlockMaterial()
+    /// </summary>
     public void TakeDamage(int damage)
     {
         currentHP -= damage; 
@@ -58,6 +66,7 @@ public class DestructibleBlock : MonoBehaviour
             audioSources[0].Play();
         }
 
+        // Play correct audio on hp change
         if (currentHP == 0)
         {
             if (isWood)
@@ -77,6 +86,9 @@ public class DestructibleBlock : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates object material to reflect object hp (mat set in editor)
+    /// </summary>
     private void UpdateBlockMaterial()
     {
         if (currentHP == 3)
@@ -93,6 +105,9 @@ public class DestructibleBlock : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If destructible object collides with another object above the velocity threshold, decrement object hp
+    /// </summary>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.relativeVelocity.magnitude >= velocityThreshold)

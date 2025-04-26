@@ -2,13 +2,16 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+
+/// <summary>
+/// Class for drawing arc of ball trajectory
+/// </summary>
 public class TrajectoryPredictor : MonoBehaviour
 {
     public LineRenderer trajectoryLine;
     public int resolution = 30; 
     public float gravity = -9.81f;
     public float maxSimulationTime = 2f;
-
     private SlingshotInteraction slingshotInteraction;
     private XRGrabInteractable grabInteractable;
 
@@ -25,7 +28,9 @@ public class TrajectoryPredictor : MonoBehaviour
         trajectoryLine.enabled = false;
     }
 
-
+    /// <summary>
+    /// While ball is being grabbed, draw trajectory
+    /// </summary>
     private void Update()
     {
         if (grabInteractable != null && grabInteractable.isSelected)
@@ -38,6 +43,9 @@ public class TrajectoryPredictor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Draws a parabola based on launch velocity and direction 
+    /// </summary>
     private void CalculateAndDrawTrajectory()
     {
         trajectoryLine.enabled = true;

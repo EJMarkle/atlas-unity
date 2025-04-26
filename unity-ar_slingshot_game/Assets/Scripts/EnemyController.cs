@@ -1,9 +1,13 @@
 using UnityEngine;
 
+
+/// <summary>
+/// Class for enemy behavior
+/// </summary>
 public class EnemyController : MonoBehaviour
 {
     public float velocityThreshold = 5f;
-    public GameObject replacementPrefab;
+    public GameObject replacementPrefab; // holds dead enemy prefab
 
     private ScoreManager scoreManager;
 
@@ -11,6 +15,10 @@ public class EnemyController : MonoBehaviour
     {
         scoreManager = FindObjectOfType<ScoreManager>();
     }
+
+    /// <summary>
+    /// If enemy collides with object above velocity threshold, replaces enemy prefab with dead version and increments score
+    /// </summary>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.relativeVelocity.magnitude >= velocityThreshold)

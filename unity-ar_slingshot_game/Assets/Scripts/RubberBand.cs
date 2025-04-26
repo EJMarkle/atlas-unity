@@ -1,5 +1,9 @@
 using UnityEngine;
 
+
+/// <summary>
+/// Class for handling "rubber band" graphic
+/// </summary>
 public class RubberBand : MonoBehaviour
 {
     public Transform leftBandAttachment; 
@@ -16,11 +20,17 @@ public class RubberBand : MonoBehaviour
         rightLineRenderer = rightBandAttachment.GetComponent<LineRenderer>();
     }
 
+    /// <summary>
+    /// Update line renderers every frame
+    /// </summary>
     private void Update()
     {
         UpdateLineRenderers();
     }
 
+    /// <summary>
+    /// If ball not launched, line renderer end point is set to ball position. End points are switched to other renderers start point on launch, giving the illusion of a taught rubber band
+    /// </summary>
     private void UpdateLineRenderers()
     {
         if (!isReleased)
@@ -41,18 +51,11 @@ public class RubberBand : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// For other scripts to set band state
+    /// </summary>
     public void SetBandReleased(bool released)
     {
         isReleased = released;
-    }
-
-    private void SetupLineRenderer(LineRenderer lineRenderer)
-    {
-        lineRenderer.startWidth = 0.05f;
-        lineRenderer.endWidth = 0.05f;
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.black;
-        lineRenderer.endColor = Color.black;
-        lineRenderer.positionCount = 2;
     }
 }

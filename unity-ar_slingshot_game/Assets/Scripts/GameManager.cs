@@ -5,8 +5,12 @@ using TMPro;
 using System.Collections;
 using NUnit.Framework;
 
+
 namespace GameManagement 
 {
+    /// <summary>
+    /// Master gamemanager class
+    /// </summary>
     public class GameManager : MonoBehaviour
     {
         public MenuManager menuManager;
@@ -33,6 +37,9 @@ namespace GameManagement
         private AudioSource[] audioSources;
     
 
+        /// <summary>
+        /// Dictionary for storing levels and par data  
+        /// </summary>
         private Dictionary<string, int> levelWinScores => new Dictionary<string, int>()
         {
             { "Level01", par1 },
@@ -40,7 +47,9 @@ namespace GameManagement
             { "Level03", par3 } 
         };
 
-
+        /// <summary>
+        /// Ensures gameobjects instantiate correctly
+        /// </summary>
         private void Start()
         {
             audioManager = GameObject.Find("AudioManager");
@@ -94,6 +103,9 @@ namespace GameManagement
             }
         }
 
+        /// <summary>
+        /// Call method to update progress after all ammo spent
+        /// </summary>
         private void Update()
         {
             if (scoreManager.ammo == 0 && !progressUpdated)
@@ -103,6 +115,9 @@ namespace GameManagement
             }
         }
 
+        /// <summary>
+        /// Cleans up scene, and assigns correct level prefab to world spawner
+        /// </summary>
         private void BeginGame()
         {
             Debug.Log("[GameManager] Starting game...");
@@ -174,6 +189,10 @@ namespace GameManagement
             }
         }
 
+        /// <summary>
+        /// Resets ball to slingshot
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator ResetBallStateNextFrame()
         {
             yield return null;
@@ -182,6 +201,9 @@ namespace GameManagement
             Debug.Log("[GameManager] Ball state reset after delay.");
         }
 
+        /// <summary>
+        /// Load correct level to spawn based on current level in dictionary
+        /// </summary>
         private void AssignCorrectLevelPrefab()
         {
             if (objectSpawner == null || objectSpawner.objectPrefabs == null)
@@ -204,6 +226,9 @@ namespace GameManagement
             Debug.Log("[GameManager] Updated ObjectSpawner with level prefab: " + currentLevel);
         }
         
+        /// <summary>
+        /// Method called by UI button to manually set level
+        /// </summary>
         public void SetLevelFromButton(GameObject button)
         {
             if (button == null)
@@ -227,6 +252,9 @@ namespace GameManagement
             }
         }
 
+        /// <summary>
+        /// Checks if score is a winning score, then checks if it's a high score. Updates playerprefs if high score
+        /// </summary>
         public IEnumerator UpdateProgress()
         {
             yield return new WaitForSeconds(1.5f);
@@ -274,6 +302,9 @@ namespace GameManagement
             PlayerPrefs.Save();
         }
 
+        /// <summary>
+        /// Clears playerpref data
+        /// </summary>
         public void ClearProgress()
         {
             Debug.Log("[GameManager] Clearing all progress...");

@@ -1,10 +1,13 @@
-
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using System.Collections;
 using System.Collections.Generic;
 
+
+/// <summary>
+/// Main slingshot interaction class
+/// </summary>
 public class SlingshotInteraction : MonoBehaviour
 {
     public Transform slingshotOrigin;
@@ -14,14 +17,12 @@ public class SlingshotInteraction : MonoBehaviour
     public float maxVerticalOffset = 0.1f;
     public float resetDelay = 5f;
     public ScoreManager scoreManager;
-
     private XRGrabInteractable grabInteractable;
     private Rigidbody rb;
     private FixedJoint fixedJoint;
     private bool isLaunched = false;
     public bool followOrigin = true;
     private Vector3 initialPosition;
-
     public RubberBand rubberBand;
     public GameObject AudioManager;
     private AudioSource[] audioSources;
@@ -39,6 +40,9 @@ public class SlingshotInteraction : MonoBehaviour
         initialPosition = transform.position;
     }
 
+    /// <summary>
+    /// Enable physics and set launch state on ball grab
+    /// </summary>
     private void OnGrabbed(SelectEnterEventArgs args)
     {
         rb.isKinematic = true;
@@ -62,6 +66,9 @@ public class SlingshotInteraction : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Ensure ball stays in intended play area
+    /// </summary>
     private void ConstrainBallPosition()
     {
         Vector3 localPosition = slingshotOrigin.InverseTransformPoint(transform.position);
@@ -71,6 +78,9 @@ public class SlingshotInteraction : MonoBehaviour
         transform.position = slingshotOrigin.TransformPoint(localPosition);
     }
 
+    /// <summary>
+    /// On ball release, play launch audio, update states, call SpendAmmo(), and start reset coroutine
+    /// </summary>
     private void OnRelease(SelectExitEventArgs args)
     {
         audioSources[8].Play();
@@ -107,7 +117,10 @@ public class SlingshotInteraction : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Resets ball after short delay to allow ball to finish rolling and bouncing
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ResetBallAfterDelay()
     {
 
