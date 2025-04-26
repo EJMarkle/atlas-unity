@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎯 AR Slingshot Game
 
 A mobile Augmented Reality game for Android and iOS built in Unity using AR Foundation and XR Interaction Toolkit. Players interact with a slingshot, firing projectiles at virtual targets for fun, skill-based gameplay.
@@ -22,8 +21,6 @@ A mobile Augmented Reality game for Android and iOS built in Unity using AR Foun
 - [ARCore (Android)](https://developers.google.com/ar)
 
 ## 🚀 Getting Started
-
-### Installationgit 
 
 Download unity-ar_slingshot_game-Android.zip or unity-ar_slingshot_game-iOS.zip from the builds folder, and unzip. Install the app to your device. 
 
@@ -53,6 +50,3 @@ Download unity-ar_slingshot_game-Android.zip or unity-ar_slingshot_game-iOS.zip 
 ## 📄 License
 
 This project is open source. 
-=======
-Unity at atlas school
->>>>>>> e60454e721aec68ee5ee266bb6f85ba247ed3824
